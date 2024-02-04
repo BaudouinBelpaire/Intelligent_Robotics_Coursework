@@ -1,0 +1,9 @@
+Generation: 100
+Pop: 80
+Elite: 12
+
+Crossover: 90%
+Mutation: 3%
+
+MLP: [10,10,10]
+

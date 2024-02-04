@@ -1,0 +1,204 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puckGroundSensors.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/obstacles/protos/OilBarrel.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.4560815011561628 0.497279120755398 0.7380400669095679 1.7863900530472783
+  position -0.33034886690229925 -2.5636826067177276 5.659258792354556
+}
+RectangleArena {
+  translation -0.0309432 0.161318 0
+  floorSize 2.2 1.8
+  floorTileSize 2.2 1.8
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "floor_line_path.jpeg"
+      ]
+      repeatS FALSE
+      repeatT FALSE
+      filtering 1
+    }
+    roughness 1
+    metalness 0
+  }
+  wallThickness 0.025
+  wallHeight 0.05
+}
+DEF boxA WoodenBox {
+  translation 0.3700543688539076 0.25996768087497407 0.046075933185468106
+  rotation 0.1808928638802928 -0.060150860312861994 -0.9816616758337917 0.001469827592480904
+  name "wooden box 1"
+  size 0.1 0.1 0.1
+  mass 10
+  locked TRUE
+}
+Robot {
+  children [
+    Display {
+      width 200
+      height 100
+    }
+    Receiver {
+      channel 20
+    }
+    Emitter {
+      channel 19
+    }
+  ]
+  name "Supervisor"
+  controller "supervisor_BBR_coursework"
+  supervisor TRUE
+}
+DEF boxB WoodenBox {
+  translation -0.21318515619050105 0.6924978054213985 0.046075999967651826
+  rotation -0.00034168095621145563 -0.0006472353824437789 0.999999732170206 0.0003508577277393208
+  name "wooden box 2"
+  size 0.1 0.1 0.1
+  mass 10
+  locked TRUE
+}
+TexturedBackground {
+  texture "empty_office"
+}
+DEF Controller E-puck {
+  hidden position_0_0 17814602.062426962
+  hidden position_0_1 10233666.16412452
+  hidden linearVelocity_0 -1.8958321907216795e-06 5.880231365532988e-09 8.832339422800337e-09
+  hidden angularVelocity_0 5.827860968250223e-07 -2.5638868476476924e-08 -5.1298346112689144e-05
+  hidden rotation_1 0 -1 0 0.1416837903470377
+  hidden linearVelocity_1 -1.9982050888997913e-06 1.3367891080488369e-06 8.038219556577535e-09
+  hidden angularVelocity_1 -0.49999925633400194 -6.321490410989621e-05 -5.0798392190115755e-05
+  hidden rotation_2 0 1 0 3.493279455176293
+  hidden linearVelocity_2 -1.7957552133251796e-06 -1.331026086248034e-06 9.392574806863933e-09
+  hidden angularVelocity_2 -0.9999992523213275 -0.000126496044648196 -5.038928811465167e-05
+  translation 0.10644934586858378 0.9332275908121876 -4.1764007949673596e-05
+  rotation 0.0020350164194280506 -0.0020336989648642176 0.9999958613797825 1.570926108713143
+  controller "controller_e-puck_BBR_coursework"
+  window "<none>"
+  emitter_channel 20
+  receiver_channel 19
+  groundSensorsSlot [
+    E-puckGroundSensors {
+    }
+  ]
+}
+DEF OBS_Cyn2 Solid {
+  translation -0.23 0.3 0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 1
+        roughness 0.5
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  boundingObject Cylinder {
+    height 0.1
+    radius 0.05
+  }
+  locked TRUE
+}
+DEF OBS_FINAL Solid {
+  translation 0.04 0.97 0
+  rotation 0 0 1 1.5708
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+      }
+      geometry Box {
+        size 0.1 0.05 0.1
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject Box {
+    size 0.1 0.05 0.1
+  }
+}
+DEF OBS_FINAL Solid {
+  translation 0.1 0.995 0
+  rotation 0 0 1 -3.1415853071795863
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+      }
+      geometry Box {
+        size 0.1 0.05 0.1
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject Box {
+    size 0.1 0.05 0.1
+  }
+}
+DEF OBS_FINAL Solid {
+  translation 0.17 0.97 0
+  rotation 0 0 1 1.5708
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+      }
+      geometry Box {
+        size 0.1 0.05 0.1
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject Box {
+    size 0.1 0.05 0.1
+  }
+}
+DEF OBS_Cyn1 Solid {
+  translation 0.38 0.71 0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 1
+        roughness 0.5
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.05
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject Cylinder {
+    height 0.1
+    radius 0.05
+  }
+  locked TRUE
+}
+DEF Light SpotLight {
+  attenuation 0 0 2
+  beamWidth 0.1
+  cutOffAngle 0.16
+  direction 1.6 0.1 -0.5
+  intensity 7
+  location -1.3 -0.5 0.2
+  on FALSE
+}
+OilBarrel {
+  translation -0.94 -0.48 0.03
+  name "beacon"
+  height 0.1
+  radius 0.05
+}
